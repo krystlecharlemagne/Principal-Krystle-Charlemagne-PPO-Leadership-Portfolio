@@ -455,6 +455,7 @@
                 <li><a href="#" onclick="showPage('achievements')">Achievements</a></li>
                 <li><a href="#" onclick="showPage('initiatives')">Initiatives</a></li>
                 <li><a href="#" onclick="showPage('data')">Data & Impact</a></li>
+                <li><a href="#" onclick="showPage('assessment')">Assessment Data</a></li>
                 <li><a href="#" onclick="showPage('future')">Future Vision</a></li>
             </ul>
             <div class="hamburger" onclick="toggleNav()">
@@ -478,7 +479,7 @@
             <div class="cta-buttons">
                 <button class="cta-button" onclick="showPage('journey')">View PPO Journey</button>
                 <button class="cta-button" onclick="showPage('achievements')">See Achievements</button>
-                <button class="cta-button" onclick="showPage('data')">View Impact Data</button>
+                <button class="cta-button" onclick="showPage('assessment')">View Assessment Data</button>
             </div>
         </section>
     </div>
@@ -699,19 +700,175 @@
         </div>
     </div>
 
+    <!-- Assessment Data Page -->
+    <div id="assessment" class="page">
+        <div class="container">
+            <h1 style="text-align: center; font-size: 3rem; margin-bottom: 3rem; background: linear-gradient(45deg, #4ecdc4, #6bcf7f); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Comprehensive Assessment Data</h1>
+            
+            <!-- State Test Results -->
+            <div style="background: rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; margin: 2rem 0;">
+                <h2 style="color: #ffd93d; margin-bottom: 1.5rem;">📊 2023-2024 State Test Performance</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">42%</div>
+                        <h3>ELA Proficiency</h3>
+                        <p>36% current vs. 47% goal (District: 47.3%, City: 49.1%)</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">50%</div>
+                        <h3>Math Proficiency</h3>
+                        <p>52.7% baseline vs. 57% goal (District: 53.6%, City: 53.4%)</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">146</div>
+                        <h3>ELA Students</h3>
+                        <p>Need to reach CEP goal of 47% proficiency</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">223</div>
+                        <h3>Math Students</h3>
+                        <p>Need to reach CEP goal of 57% proficiency</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Acadience Progress -->
+            <div style="background: rgba(108, 207, 127, 0.2); border-radius: 20px; padding: 2rem; margin: 2rem 0;">
+                <h2 style="color: #6bcf7f; margin-bottom: 1.5rem;">📈 Acadience ELA Growth (K-2)</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px;">
+                        <h3 style="color: #ffd93d;">BOY (Fall)</h3>
+                        <div style="font-size: 2.5rem; font-weight: bold; color: #6bcf7f;">45.6%</div>
+                        <p>At or Above Benchmark</p>
+                    </div>
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px;">
+                        <h3 style="color: #ffd93d;">MOY (Winter)</h3>
+                        <div style="font-size: 2.5rem; font-weight: bold; color: #6bcf7f;">57%</div>
+                        <p>At or Above Benchmark</p>
+                    </div>
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px;">
+                        <h3 style="color: #ffd93d;">EOY (Spring)</h3>
+                        <div style="font-size: 2.5rem; font-weight: bold; color: #6bcf7f;">69%</div>
+                        <p>At or Above Benchmark</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 1.5rem; font-size: 1.2rem;">
+                    <strong>📊 Impressive Growth: +23.4 percentage points from Fall to Spring!</strong>
+                </div>
+            </div>
+
+            <!-- iReady Data -->
+            <div style="background: rgba(78, 205, 196, 0.2); border-radius: 20px; padding: 2rem; margin: 2rem 0;">
+                <h2 style="color: #4ecdc4; margin-bottom: 1.5rem;">💻 iReady Assessment Progress</h2>
+                
+                <h3 style="color: #ffd93d; margin: 1.5rem 0;">ELA iReady Growth (Grades 3-8)</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>2023-24 BOY:</strong> 22%
+                    </div>
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>2023-24 MOY:</strong> 35%
+                    </div>
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>2023-24 EOY:</strong> 41%
+                    </div>
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>2024-25 MOY:</strong> 33%
+                    </div>
+                </div>
+
+                <h3 style="color: #ffd93d; margin: 1.5rem 0;">Math iReady Growth (Grades 3-8)</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem;">
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>2023-24 BOY:</strong> 16%
+                    </div>
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>2023-24 MOY:</strong> 30%
+                    </div>
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>2023-24 EOY:</strong> 44%
+                    </div>
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>2024-25 MOY:</strong> 31%
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grade-by-Grade Breakdown -->
+            <div style="background: rgba(255, 107, 107, 0.2); border-radius: 20px; padding: 2rem; margin: 2rem 0;">
+                <h2 style="color: #ff6b6b; margin-bottom: 1.5rem;">🎯 Grade-Level Performance Analysis</h2>
+                
+                <h3 style="color: #ffd93d;">Math Performance by Grade (2023-24)</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>Grade 3:</strong> 0% (58 students need support)
+                    </div>
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>Grade 4:</strong> 44% (29 students to goal)
+                    </div>
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>Grade 5:</strong> 46% (24 students to goal)
+                    </div>
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>Grade 6:</strong> 58% (42 students to goal)
+                    </div>
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>Grade 7:</strong> 54% (54 students to goal)
+                    </div>
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>Grade 8:</strong> 56% (41 students to goal)
+                    </div>
+                </div>
+
+                <h3 style="color: #ffd93d; margin-top: 2rem;">ELA Performance by Grade (2023-24)</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>Grade 3:</strong> 0% (24 students to goal)
+                    </div>
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>Grade 4:</strong> 33% (21 students to goal)
+                    </div>
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>Grade 5:</strong> 21% (17 students to goal)
+                    </div>
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>Grade 6:</strong> 25% (31 students to goal)
+                    </div>
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>Grade 7:</strong> 39% (39 students to goal)
+                    </div>
+                    <div style="text-align: center; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>Grade 8:</strong> 58% (Grade 8 exceeds goal!)
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; margin: 2rem 0; text-align: center;">
+                <h2 style="color: #ffd93d;">Key Takeaways</h2>
+                <ul style="text-align: left; font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: 0 auto;">
+                    <li><strong>Strongest Performance:</strong> Grade 8 ELA (58%) and Grade 6 Math (58%)</li>
+                    <li><strong>Greatest Growth Opportunity:</strong> Grade 3 across both subjects needs intensive support</li>
+                    <li><strong>Acadience Success:</strong> K-2 showing excellent growth trajectory (+23 points)</li>
+                    <li><strong>iReady Progress:</strong> Consistent improvement in Math from 16% to 44% over the year</li>
+                    <li><strong>Strategic Focus:</strong> 146 ELA students and 223 Math students need targeted intervention</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <!-- Future Vision Page -->
     <div id="future" class="page">
         <div class="container">
-            <h1 style="text-align: center; font-size: 3rem; margin-bottom: 3rem; background: linear-gradient(45deg, #764ba2, #667eea); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Future Vision & Next Steps</h1>
+            <h1 style="text-align: center; font-size: 3rem; margin-bottom: 3rem; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Future Vision & Next Steps</h1>
             
             <div style="text-align: center; margin-bottom: 3rem;">
-                <p style="font-size: 1.3rem;">Building on proven success to achieve even greater educational impact</p>
+                <p style="font-size: 1.3rem; color: white;">Building on proven success to achieve even greater educational impact</p>
             </div>
             
             <div class="vision-cards">
                 <div class="vision-card">
-                    <h3>🎯 Instructional Excellence</h3>
-                    <ul style="text-align: left;">
+                    <h3 style="color: #ffd93d;">🎯 Instructional Excellence</h3>
+                    <ul style="text-align: left; color: white;">
                         <li>Refine progress monitoring within Wit & Wisdom curriculum</li>
                         <li>Enhance real-time formative assessment practices</li>
                         <li>Strengthen ICT collaborative teaching models</li>
@@ -719,8 +876,8 @@
                     </ul>
                 </div>
                 <div class="vision-card">
-                    <h3>📊 Data-Driven Innovation</h3>
-                    <ul style="text-align: left;">
+                    <h3 style="color: #ff6b6b;">📊 Data-Driven Innovation</h3>
+                    <ul style="text-align: left; color: white;">
                         <li>Refine centralized data tracker with intervention types</li>
                         <li>Mathematics block audit for conceptual/procedural balance</li>
                         <li>Enhanced i-Ready instruction for targeted groups</li>
@@ -728,8 +885,8 @@
                     </ul>
                 </div>
                 <div class="vision-card">
-                    <h3>🌟 Community Leadership</h3>
-                    <ul style="text-align: left;">
+                    <h3 style="color: #6bcf7f;">🌟 Community Leadership</h3>
+                    <ul style="text-align: left; color: white;">
                         <li>Expand Saturday Academy programming</li>
                         <li>Continue Relay literacy coach collaboration</li>
                         <li>Strengthen observation tracking system with coaches</li>
@@ -739,19 +896,19 @@
             </div>
 
             <div style="background: rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 3rem; margin: 3rem 0; text-align: center;">
-                <h2>Strategic Priorities for Continued Growth</h2>
+                <h2 style="color: white;">Strategic Priorities for Continued Growth</h2>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
                     <div>
                         <h4 style="color: #ffd93d;">Curriculum Integration</h4>
-                        <p>Embed formative assessment checkpoints into Wit & Wisdom lessons</p>
+                        <p style="color: white;">Embed formative assessment checkpoints into Wit & Wisdom lessons</p>
                     </div>
                     <div>
                         <h4 style="color: #ff6b6b;">Teacher Development</h4>
-                        <p>Align feedback to Danielson Domains 1A with 3D for school-wide coherence</p>
+                        <p style="color: white;">Align feedback to Danielson Domains 1A with 3D for school-wide coherence</p>
                     </div>
                     <div>
                         <h4 style="color: #6bcf7f;">Student Support</h4>
-                        <p>Focus intervention/test prep with personalized i-Path and phonics</p>
+                        <p style="color: white;">Focus intervention/test prep with personalized i-Path and phonics</p>
                     </div>
                 </div>
             </div>
