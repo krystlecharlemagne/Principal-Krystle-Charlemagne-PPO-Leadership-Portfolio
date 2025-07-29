@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal Krystle Charlemagne - Leadership Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ffd93d, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Page Container */
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding-top: 100px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Home Page Styles */
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6bcf7f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: slideInDown 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: slideInUp 1s ease-out 0.5s both;
+        }
+
+        .school-info {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            animation: fadeIn 1s ease-out 1s both;
+        }
+
+        .cta-buttons {
+            margin-top: 3rem;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cta-button {
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Timeline Styles */
+        .timeline-container {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #ff6b6b, #ffd93d, #6bcf7f, #4ecdc4);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 4rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease-out;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 55%;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 55%;
+            text-align: left;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            border-radius: 50%;
+            border: 4px solid white;
+            z-index: 10;
+        }
+
+        .ppo-date {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffd93d;
+            margin-bottom: 1rem;
+        }
+
+        .celebration-areas {
+            background: rgba(108, 207, 127, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 5px solid #6bcf7f;
+        }
+
+        .focus-areas {
+            background: rgba(255, 107, 107, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .next-steps {
+            background: rgba(255, 217, 61, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 5px solid #ffd93d;
+        }
+
+        .domain-ratings {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 1rem 0;
+        }
+
+        .domain-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .highly-effective {
+            background: linear-gradient(45deg, #6bcf7f, #4ecdc4);
+            color: white;
+        }
+
+        .effective {
+            background: linear-gradient(45deg, #ffd93d, #ffb347);
+            color: #333;
+        }
+
+        /* Stats Styles */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-chart {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            height: 300px;
+            display: flex;
+            align-items: end;
+            justify-content: space-around;
+        }
+
+        .progress-bar {
+            width: 80px;
+            background: linear-gradient(180deg, #6bcf7f, #4ecdc4);
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            transition: height 2s ease-out;
+            display: flex;
+            align-items: end;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .progress-bar::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            text-align: center;
+            width: 100px;
+            color: white;
+        }
+
+        /* Initiatives Styles */
+        .initiatives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .initiative-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .initiative-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .initiative-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Future Vision Styles */
+        .vision-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .vision-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .vision-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Animations */
+        @keyframes slideInDown {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { flex-direction: column; gap: 1rem; }
+            .navbar { padding: 1rem; }
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin: 0 0 0 15%;
+                text-align: left;
+            }
+            .timeline-line { left: 5%; }
+            .timeline-dot { left: 5%; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(102, 126, 234, 0.95);
+                flex-direction: column;
+                justify-content: start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: right 0.3s ease;
+            }
+            .nav-links.active { right: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Principal Charlemagne</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" onclick="showPage('home')" class="active">Home</a></li>
+                <li><a href="#" onclick="showPage('journey')">PPO Journey</a></li>
+                <li><a href="#" onclick="showPage('achievements')">Achievements</a></li>
+                <li><a href="#" onclick="showPage('initiatives')">Initiatives</a></li>
+                <li><a href="#" onclick="showPage('data')">Data & Impact</a></li>
+                <li><a href="#" onclick="showPage('future')">Future Vision</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <h1>Principal Krystle Charlemagne</h1>
+            <p>Transformational Educational Leadership</p>
+            <div class="school-info">
+                <strong>P.S. 66 (18K066) • Brooklyn, NY</strong><br>
+                Community School District 18<br>
+                <em>Excellence Through Innovation & Community</em>
+            </div>
+            <div class="cta-buttons">
+                <button class="cta-button" onclick="showPage('journey')">View PPO Journey</button>
+                <button class="cta-button" onclick="showPage('achievements')">See Achievements</button>
+                <button class="cta-button" onclick="showPage('data')">View Impact Data</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- PPO Journey Page -->
+    <div id="journey" class="page">
+        <div class="container">
+            <h1 style="text-align: center; font-size: 3rem; margin-bottom: 3rem; background: linear-gradient(45deg, #ffd93d, #ff6b6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">PPO Evolution Journey</h1>
+            
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+
+                <!-- PPO 1: November 2023 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="ppo-date">November 15, 2023 - Foundation Building</div>
+                        <h3>First PPO: Vision & Structure Implementation</h3>
+                        
+                        <div class="celebration-areas">
+                            <h4>🎉 Areas of Celebration</h4>
+                            <ul>
+                                <li><strong>Domain 1 & 2 Culture:</strong> Established clear instructional focus aligned with district goals</li>
+                                <li><strong>Pacing Excellence:</strong> Implemented timers and structured agendas school-wide</li>
+                                <li><strong>Community Engagement:</strong> Monthly teacher townhalls and parent workshops</li>
+                                <li><strong>Student Voice:</strong> Data Fridays and R.I.S.E. team implementation</li>
+                                <li><strong>Success Criteria:</strong> Clear learning targets with student-friendly language</li>
+                            </ul>
+                        </div>
+
+                        <div class="focus-areas">
+                            <h4>🎯 Areas of Focus</h4>
+                            <ul>
+                                <li><strong>Domain 2:</strong> Academic monitoring logs alignment with success criteria</li>
+                                <li><strong>K-2 Fundations:</strong> Fidelity implementation needed</li>
+                                <li><strong>Progress Monitoring:</strong> Strategic use of assessment data</li>
+                            </ul>
+                        </div>
+
+                        <div class="domain-ratings">
+                            <span class="domain-badge effective">Domain 1: Culture - Effective</span>
+                            <span class="domain-badge effective">Domain 2: Multiple Dimensions - Effective</span>
+                            <span class="domain-badge effective">Domain 3: Culture - Effective</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PPO 2: March 2024 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="ppo-date">March 5, 2024 - Strategic Implementation</div>
+                        <h3>Second PPO: Systems & Innovation</h3>
+                        
+                        <div class="celebration-areas">
+                            <h4>🎉 Remarkable Progress</h4>
+                            <ul>
+                                <li><strong>Domain 1 Sustainability:</strong> Systematic observation feedback implementation</li>
+                                <li><strong>Assessment Revolution:</strong> Digital progress monitoring sheets aligned to success criteria</li>
+                                <li><strong>Professional Learning:</strong> K-2 Fundations training and academic monitoring refresh</li>
+                                <li><strong>Data Management:</strong> Consolidated tracker with data specialist appointment</li>
+                                <li><strong>Lesson Structure:</strong> Revamped 45-min phonics blocks (30 min Fundations + 15 min Heggerty)</li>
+                                <li><strong>Culture Building:</strong> Mindfulness room, Modern Day Man program, morning routines</li>
+                            </ul>
+                        </div>
+
+                        <div class="focus-areas">
+                            <h4>🎯 Continued Growth Areas</h4>
+                            <ul>
+                                <li><strong>Student Discourse:</strong> Moving from teacher-led to meaningful student engagement</li>
+                                <li><strong>Strategic Monitoring:</strong> More impactful academic progress tracking</li>
+                                <li><strong>Feedback Implementation:</strong> Some teachers still developing consistency</li>
+                            </ul>
+                        </div>
+
+                        <div class="domain-ratings">
+                            <span class="domain-badge effective">Domain 1: Culture & Sustainability - Effective</span>
+                            <span class="domain-badge effective">Domain 2: All Dimensions - Effective</span>
+                            <span class="domain-badge effective">Domain 3: Culture & More - Effective</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PPO 3: October 2024 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="ppo-date">October 30, 2024 - Advanced Leadership</div>
+                        <h3>Third PPO: Systems Mastery</h3>
+                        
+                        <div class="celebration-areas">
+                            <h4>🎉 Leadership Excellence</h4>
+                            <ul>
+                                <li><strong>Domain 1 & 3 Celebration:</strong> Sustainability and Capacity Building mastery</li>
+                                <li><strong>Structural Innovation:</strong> Weekly cabinet meetings, bi-weekly ILT meetings</li>
+                                <li><strong>External Partnerships:</strong> Normed expectations with Relay and Teaching Matters</li>
+                                <li><strong>Resource Maximization:</strong> New literacy coach, department chairs, elected official funding</li>
+                                <li><strong>Technology Enhancement:</strong> Increased resources through advocacy efforts</li>
+                                <li><strong>Curriculum Fidelity:</strong> Wit & Wisdom implementation across all literacy classrooms</li>
+                            </ul>
+                        </div>
+
+                        <div class="focus-areas">
+                            <h4>🎯 Refinement Focus</h4>
+                            <ul>
+                                <li><strong>Progress Monitoring:</strong> Consistent monitoring within curriculum protocols</li>
+                                <li><strong>ICT Models:</strong> Moving beyond "one teach, one assist" to full collaboration</li>
+                                <li><strong>Formative Assessment:</strong> Real-time adjustment strategies</li>
+                            </ul>
+                        </div>
+
+                        <div class="domain-ratings">
+                            <span class="domain-badge effective">Domain 1: Sustainability - Effective</span>
+                            <span class="domain-badge effective">Domain 2: Multiple Dimensions - Effective</span>
+                            <span class="domain-badge highly-effective">Domain 3: Capacity Building - Highly Effective</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PPO 4: January 2025 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="ppo-date">January 31, 2025 - Mastery & Innovation</div>
+                        <h3>Fourth PPO: Excellence Achievement</h3>
+                        
+                        <div class="celebration-areas">
+                            <h4>🎉 Exceptional Leadership</h4>
+                            <ul>
+                                <li><strong>Domain 1 & 3 Excellence:</strong> Culture and systematic improvement mastery</li>
+                                <li><strong>Data-Driven Culture:</strong> Comprehensive progress monitoring and strategic planning</li>
+                                <li><strong>ICT Enhancement:</strong> Team teaching and station teaching models embedded</li>
+                                <li><strong>Observation Excellence:</strong> 24-hour feedback system with actionable insights</li>
+                                <li><strong>Community Impact:</strong> Saturday Academy, virtual engagement, school branding success</li>
+                                <li><strong>Culture Innovation:</strong> RISE team, Principal lunches, Grace Alternative partnership</li>
+                            </ul>
+                        </div>
+
+                        <div class="focus-areas">
+                            <h4>🎯 Next Level Excellence</h4>
+                            <ul>
+                                <li><strong>Wit & Wisdom Integration:</strong> Enhanced progress monitoring within curriculum</li>
+                                <li><strong>Formative Assessment:</strong> Real-time instructional adjustments</li>
+                                <li><strong>ICT Collaboration:</strong> Full collaborative teaching model implementation</li>
+                            </ul>
+                        </div>
+
+                        <div class="domain-ratings">
+                            <span class="domain-badge effective">Domain 1: Culture & Sustainability - Effective</span>
+                            <span class="domain-badge effective">Domain 2: All Dimensions - Effective</span>
+                            <span class="domain-badge highly-effective">Domain 3: Culture - Highly Effective</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Achievements Page -->
+    <div id="achievements" class="page">
+        <div class="container">
+            <h1 style="text-align: center; font-size: 3rem; margin-bottom: 3rem; background: linear-gradient(45deg, #6bcf7f, #4ecdc4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Key Achievements</h1>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">92%</div>
+                    <h3>Attendance Rate</h3>
+                    <p>Maintained strong attendance through engagement programs</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">35%</div>
+                    <h3>ELA iReady Growth</h3>
+                    <p>Mid-year improvement from 26.7% to 35% on/above grade level</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">32%</div>
+                    <h3>Math iReady Progress</h3>
+                    <p>Increased from 16.5% to 32% students on/above grade level</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">16</div>
+                    <h3>Level 4&5 Incidents</h3>
+                    <p>Low disciplinary incidents with proactive intervention</p>
+                </div>
+            </div>
+
+            <h2 style="text-align: center; margin: 3rem 0;">Academic Progress Trends</h2>
+            
+            <div style="background: rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; margin: 2rem 0;">
+                <h3>ELA Performance Journey</h3>
+                <ul style="font-size: 1.1rem; line-height: 1.8;">
+                    <li><strong>NYSED 2024:</strong> 42% proficiency baseline</li>
+                    <li><strong>Current Proficiency:</strong> 34% (working toward 47% goal)</li>
+                    <li><strong>BOY Acadience:</strong> 46.2% at/above benchmark</li>
+                    <li><strong>MOY Progress:</strong> 56% at/above benchmark</li>
+                </ul>
+            </div>
+
+            <div style="background: rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; margin: 2rem 0;">
+                <h3>Mathematics Achievement Growth</h3>
+                <ul style="font-size: 1.1rem; line-height: 1.8;">
+                    <li><strong>NYSED 2024:</strong> 52.7% proficiency baseline</li>
+                    <li><strong>Current Status:</strong> 50% proficiency (goal: 57%)</li>
+                    <li><strong>BOY Performance:</strong> 1.9% K-2 at/above benchmark</li>
+                    <li><strong>MOY Improvement:</strong> 18% K-2 at/above benchmark</li>
+                </ul>
+            </div>
+
+            <div style="background: rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; margin: 2rem 0;">
+                <h3>Special Education Excellence</h3>
+                <ul style="font-size: 1.1rem; line-height: 1.8;">
+                    <li><strong>IEP Mandate Fulfillment:</strong> 88-93% consistently served</li>
+                    <li><strong>Quality IEP Initiative:</strong> 75% meeting quality standards</li>
+                    <li><strong>Inclusive Practices:</strong> Enhanced ICT model implementation</li>
+                    <li><strong>Support Systems:</strong> Targeted interventions for lowest 16th percentile</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Future Vision Page -->
+    <div id="future" class="page">
+        <div class="container">
+            <h1 style="text-align: center; font-size: 3rem; margin-bottom: 3rem; background: linear-gradient(45deg, #764ba2, #667eea); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Future Vision & Next Steps</h1>
+            
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <p style="font-size: 1.3rem;">Building on proven success to achieve even greater educational impact</p>
+            </div>
+            
+            <div class="vision-cards">
+                <div class="vision-card">
+                    <h3>🎯 Instructional Excellence</h3>
+                    <ul style="text-align: left;">
+                        <li>Refine progress monitoring within Wit & Wisdom curriculum</li>
+                        <li>Enhance real-time formative assessment practices</li>
+                        <li>Strengthen ICT collaborative teaching models</li>
+                        <li>Develop teacher-specific professional learning plans</li>
+                    </ul>
+                </div>
+                <div class="vision-card">
+                    <h3>📊 Data-Driven Innovation</h3>
+                    <ul style="text-align: left;">
+                        <li>Refine centralized data tracker with intervention types</li>
+                        <li>Mathematics block audit for conceptual/procedural balance</li>
+                        <li>Enhanced i-Ready instruction for targeted groups</li>
+                        <li>Progress monitoring log analysis for reteach planning</li>
+                    </ul>
+                </div>
+                <div class="vision-card">
+                    <h3>🌟 Community Leadership</h3>
+                    <ul style="text-align: left;">
+                        <li>Expand Saturday Academy programming</li>
+                        <li>Continue Relay literacy coach collaboration</li>
+                        <li>Strengthen observation tracking system with coaches</li>
+                        <li>Maintain SOLVED 4th Monday PL sessions for ICT teams</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="background: rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 3rem; margin: 3rem 0; text-align: center;">
+                <h2>Strategic Priorities for Continued Growth</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div>
+                        <h4 style="color: #ffd93d;">Curriculum Integration</h4>
+                        <p>Embed formative assessment checkpoints into Wit & Wisdom lessons</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #ff6b6b;">Teacher Development</h4>
+                        <p>Align feedback to Danielson Domains 1A with 3D for school-wide coherence</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #6bcf7f;">Student Support</h4>
+                        <p>Focus intervention/test prep with personalized i-Path and phonics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Page Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Close mobile menu
+            document.getElementById('navLinks').classList.remove('active');
+            
+            // Trigger animations for timeline if on journey page
+            if (pageId === 'journey') {
+                setTimeout(() => {
+                    const timelineItems = document.querySelectorAll('.timeline-item');
+                    timelineItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('visible');
+                        }, index * 200);
+                    });
+                }, 100);
+            }
+        }
+
+        // Mobile Navigation Toggle
+        function toggleNav() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Initialize timeline animations on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for timeline animations
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            timelineItems.forEach(item => observer.observe(item));
+
+            // Progress bar animation
+            const progressBars = document.querySelectorAll('.progress-bar');
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        progressBars.forEach((bar, index) => {
+                            setTimeout(() => {
+                                bar.style.height = bar.style.height;
+                            }, index * 300);
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const progressChart = document.querySelector('.progress-chart');
+            if (progressChart) {
+                statsObserver.observe(progressChart);
+            }
+        });
+
+        // Add smooth scrolling for better UX
+        document.querySelectorAll('a[onclick]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Extract page name from onclick attribute
+                const onclick = this.getAttribute('onclick');
+                const pageMatch = onclick.match(/showPage\('(\w+)'\)/);
+                if (pageMatch) {
+                    showPage(pageMatch[1]);
+                }
+            });
+        });
+
+        // Hero interaction effect
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            hero.addEventListener('mousemove', (e) => {
+                const { clientX: x, clientY: y } = e;
+                const { innerWidth: width, innerHeight: height } = window;
+                const xRotation = ((y - height / 2) / height) * 5;
+                const yRotation = ((x - width / 2) / width) * -5;
+                
+                hero.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
+            });
+
+            hero.addEventListener('mouseleave', () => {
+                hero.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+            });
+        }
+    </script>
+</body>
+</html>-card">
+                    <div class="stat-number">4</div>
+                    <h3>PPO Evaluations</h3>
+                    <p>Consistent growth trajectory across all MPPR domains</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">26%</div>
+                    <h3>Chronic Absenteeism Rate</h3>
+                    <p>Significant improvement in student attendance patterns</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">0</div>
+                    <h3>Suspension Rate</h3>
+                    <p>Maintained excellent disciplinary environment throughout tenure</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">93%</div>
+                    <h3>IEP Compliance</h3>
+                    <p>Strong special education service delivery and support</p>
+                </div>
+            </div>
+
+            <div class="progress-chart">
+                <div class="progress-bar" style="height: 50%;" data-label="Nov 2023">All Effective</div>
+                <div class="progress-bar" style="height: 60%;" data-label="Mar 2024">All Effective</div>
+                <div class="progress-bar" style="height: 80%;" data-label="Oct 2024">1 Highly Effective</div>
+                <div class="progress-bar" style="height: 90%;" data-label="Jan 2025">1 Highly Effective</div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <h3>MPPR Domain Rating Progression</h3>
+                <p>Movement from all "Effective" ratings to achieving "Highly Effective" in Domain 3</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Initiatives Page -->
+    <div id="initiatives" class="page">
+        <div class="container">
+            <h1 style="text-align: center; font-size: 3rem; margin-bottom: 3rem; background: linear-gradient(45deg, #ff6b6b, #ffd93d); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Leadership Initiatives</h1>
+            
+            <div class="initiatives-grid">
+                <div class="initiative-card">
+                    <div class="initiative-icon">📊</div>
+                    <h3>Data-Driven Systems</h3>
+                    <ul>
+                        <li>Weekly Data Fridays for student progress review</li>
+                        <li>Comprehensive data tracker with intervention specialist</li>
+                        <li>Progress monitoring logs aligned to learning objectives</li>
+                        <li>Strategic data meetings for reteach planning</li>
+                    </ul>
+                </div>
+
+                <div class="initiative-card">
+                    <div class="initiative-icon">🤝</div>
+                    <h3>Collaborative Teaching Models</h3>
+                    <ul>
+                        <li>ICT partnerships with team teaching emphasis</li>
+                        <li>Station teaching implementation</li>
+                        <li>Co-teaching professional development through SOLVED</li>
+                        <li>Peer intervisitation between teacher leaders</li>
+                    </ul>
+                </div>
+
+                <div class="initiative-card">
+                    <div class="initiative-icon">🌟</div>
+                    <h3>Community & Culture Building</h3>
+                    <ul>
+                        <li>R.I.S.E. team for student support and wellness</li>
+                        <li>Saturday Academy programming</li>
+                        <li>Principal lunch recognition system</li>
+                        <li>Grace Alternative partnership for targeted support</li>
+                    </ul>
+                </div>
+
+                <div class="initiative-card">
+                    <div class="initiative-icon">👨‍🏫</div>
+                    <h3>Professional Development</h3>
+                    <ul>
+                        <li>Weekly cabinet meetings for instructional alignment</li>
+                        <li>Bi-weekly ILT meetings with department chairs</li>
+                        <li>External partnerships with Relay and Teaching Matters</li>
+                        <li>Targeted PL based on observation data</li>
+                    </ul>
+                </div>
+
+                <div class="initiative-card">
+                    <div class="initiative-icon">💼</div>
+                    <h3>Resource Maximization</h3>
+                    <ul>
+                        <li>Secured new literacy coach position</li>
+                        <li>Established department chair leadership roles</li>
+                        <li>Advocacy for elected official funding</li>
+                        <li>Technology resource enhancement</li>
+                    </ul>
+                </div>
+
+                <div class="initiative-card">
+                    <div class="initiative-icon">📚</div>
+                    <h3>Curriculum & Instruction</h3>
+                    <ul>
+                        <li>Wit & Wisdom implementation with fidelity</li>
+                        <li>Fundations program for K-2 literacy</li>
+                        <li>Clear learning objectives and success criteria</li>
+                        <li>Structured lesson pacing with timers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data & Impact Page -->
+    <div id="data" class="page">
+        <div class="container">
+            <h1 style="text-align: center; font-size: 3rem; margin-bottom: 3rem; background: linear-gradient(45deg, #4ecdc4, #6bcf7f); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Data & Measurable Impact</h1>
+            
+            <div class="stats-grid">
+                <div class="stat
