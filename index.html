@@ -232,14 +232,6 @@
             border-left: 5px solid #ff6b6b;
         }
 
-        .next-steps {
-            background: rgba(255, 217, 61, 0.3);
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin: 1rem 0;
-            border-left: 5px solid #ffd93d;
-        }
-
         .domain-ratings {
             display: flex;
             flex-wrap: wrap;
@@ -293,42 +285,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 0.5rem;
-        }
-
-        .progress-chart {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 2rem;
-            margin: 2rem 0;
-            height: 300px;
-            display: flex;
-            align-items: end;
-            justify-content: space-around;
-        }
-
-        .progress-bar {
-            width: 80px;
-            background: linear-gradient(180deg, #6bcf7f, #4ecdc4);
-            border-radius: 10px 10px 0 0;
-            position: relative;
-            transition: height 2s ease-out;
-            display: flex;
-            align-items: end;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-
-        .progress-bar::after {
-            content: attr(data-label);
-            position: absolute;
-            bottom: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.9rem;
-            text-align: center;
-            width: 100px;
-            color: white;
         }
 
         /* Initiatives Styles */
@@ -669,22 +625,22 @@
 
             <h2 style="text-align: center; margin: 3rem 0;">Academic Progress Trends</h2>
             
-           <div style="background: rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; margin: 2rem 0;">
-    <h3>ELA Performance Journey</h3>
-    <ul style="font-size: 1.1rem; line-height: 1.8;">
-        <li><strong>NYSED 2024:</strong> 42% proficiency baseline</li>
-        <li><strong>Current Proficiency:</strong> 54.6% (2025 NYS results)</li>
-        <li><strong>Growth:</strong> +12.6 percentage points</li>
-    </ul>
-    
-    <h4 style="color: #4ecdc4; margin: 1.5rem 0 1rem 0;">📈 Acadience K-2 Reading Growth (2024-25)</h4>
-    <ul style="font-size: 1.1rem; line-height: 1.8;">
-        <li><strong>BOY (Fall):</strong> 46% at/above benchmark</li>
-        <li><strong>EOY (Spring):</strong> 70% at/above benchmark</li>
-        <li><strong>Annual Growth:</strong> +24 percentage points</li>
-        <li><strong>Typical Progress:</strong> 83% of students making expected growth</li>
-    </ul>
-</div>
+            <div style="background: rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; margin: 2rem 0;">
+                <h3>ELA Performance Journey</h3>
+                <ul style="font-size: 1.1rem; line-height: 1.8;">
+                    <li><strong>NYSED 2024:</strong> 42% proficiency baseline</li>
+                    <li><strong>Current Proficiency:</strong> 54.6% (2025 NYS results)</li>
+                    <li><strong>Growth:</strong> +12.6 percentage points</li>
+                </ul>
+                
+                <h4 style="color: #4ecdc4; margin: 1.5rem 0 1rem 0;">📈 Acadience K-2 Reading Growth (2024-25)</h4>
+                <ul style="font-size: 1.1rem; line-height: 1.8;">
+                    <li><strong>BOY (Fall):</strong> 46% at/above benchmark</li>
+                    <li><strong>EOY (Spring):</strong> 70% at/above benchmark</li>
+                    <li><strong>Annual Growth:</strong> +24 percentage points</li>
+                    <li><strong>Typical Progress:</strong> 83% of students making expected growth</li>
+                </ul>
+            </div>
 
             <div style="background: rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; margin: 2rem 0;">
                 <h3>Mathematics Achievement Growth</h3>
@@ -875,34 +831,37 @@
                     </div>
                 </div>
 
-              <div style="background: rgba(255, 255, 255, 0.15); border-radius: 15px; padding: 2rem; margin: 2rem 0; text-align: center;">
-    <h3 style="color: #ff6b6b; margin-bottom: 1rem;">📊 Three-Year Leadership Impact Journey</h3>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-        <div style="background: rgba(78, 205, 196, 0.3); padding: 1.5rem; border-radius: 10px;">
-            <h4 style="color: #4ecdc4;">ELA Growth Trajectory</h4>
-            <p style="color: white; font-size: 1rem; margin: 0.5rem 0;"><strong>2022-23 (Inherited):</strong> 44% proficiency</p>
-            <p style="color: white; font-size: 1rem; margin: 0.5rem 0;"><strong>2023-24:</strong> 42% proficiency</p>
-            <p style="color: white; font-size: 1rem; margin: 0.5rem 0;"><strong>2025:</strong> 54.6% proficiency</p>
-            <p style="color: #6bcf7f; font-size: 1.3rem; font-weight: bold;">📈 +10.6 percentage points from baseline!</p>
-        </div>
-        <div style="background: rgba(255, 217, 61, 0.3); padding: 1.5rem; border-radius: 10px;">
-            <h4 style="color: #ffd93d;">Math Growth Trajectory</h4>
-            <p style="color: white; font-size: 1rem; margin: 0.5rem 0;"><strong>2022-23 (Inherited):</strong> 52% proficiency</p>
-            <p style="color: white; font-size: 1rem; margin: 0.5rem 0;"><strong>2023-24:</strong> 50% proficiency</p>
-            <p style="color: white; font-size: 1rem; margin: 0.5rem 0;"><strong>2025:</strong> 60.3% proficiency</p>
-            <p style="color: #ffd93d; font-size: 1.3rem; font-weight: bold;">📈 +8.3 percentage points from baseline!</p>
-        </div>
-        <div style="background: rgba(108, 207, 127, 0.3); padding: 1.5rem; border-radius: 10px;">
-            <h4 style="color: #6bcf7f;">Leadership Impact Summary</h4>
-            <p style="color: white; font-size: 1rem; margin: 0.5rem 0;"><strong>Year 1:</strong> Strategic foundation building</p>
-            <p style="color: white; font-size: 1rem; margin: 0.5rem 0;"><strong>Year 2:</strong> Systems implementation</p>
-            <p style="color: white; font-size: 1rem; margin: 0.5rem 0;"><strong>Year 3:</strong> Significant growth achieved</p>
-            <p style="color: #6bcf7f; font-size: 1.2rem; font-weight: bold;">🎯 Strong upward trajectory in both subjects</p>
+                <div style="background: rgba(255, 255, 255, 0.15); border-radius: 15px; padding: 2rem; margin: 2rem 0; text-align: center;">
+                    <h3 style="color: #ff6b6b; margin-bottom: 1rem;">📊 Three-Year Leadership Impact Journey</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                        <div style="background: rgba(78, 205, 196, 0.3); padding: 1.5rem; border-radius: 10px;">
+                            <h4 style="color: #4ecdc4;">ELA Growth Trajectory</h4>
+                            <p style="color: white; font-size: 1rem; margin: 0.5rem 0;"><strong>2022-23 (Inherited):</strong> 44% proficiency</p>
+                            <p style="color: white; font-size: 1rem; margin: 0.5rem 0;"><strong>2023-24:</strong> 42% proficiency</p>
+                            <p style="color: white; font-size: 1rem; margin: 0.5rem 0;"><strong>2025:</strong> 54.6% proficiency</p>
+                            <p style="color: #6bcf7f; font-size: 1.3rem; font-weight: bold;">📈 +10.6 percentage points from baseline!</p>
+                        </div>
+                        <div style="background: rgba(255, 217, 61, 0.3); padding: 1.5rem; border-radius: 10px;">
+                            <h4 style="color: #ffd93d;">Math Growth Trajectory</h4>
+                            <p style="color: white; font-size: 1rem; margin: 0.5rem 0;"><strong>2022-23 (Inherited):</strong> 52% proficiency</p>
+                            <p style="color: white; font-size: 1rem; margin: 0.5rem 0;"><strong>2023-24:</strong> 50% proficiency</p>
+                            <p style="color: white; font-size: 1rem; margin: 0.5rem 0;"><strong>2025:</strong> 60.3% proficiency</p>
+                            <p style="color: #ffd93d; font-size: 1.3rem; font-weight: bold;">📈 +8.3 percentage points from baseline!</p>
+                        </div>
+                        <div style="background: rgba(108, 207, 127, 0.3); padding: 1.5rem; border-radius: 10px;">
+                            <h4 style="color: #6bcf7f;">Leadership Impact Summary</h4>
+                            <p style="color: white; font-size: 1rem; margin: 0.5rem 0;"><strong>Year 1:</strong> Strategic foundation building</p>
+                            <p style="color: white; font-size: 1rem; margin: 0.5rem 0;"><strong>Year 2:</strong> Systems implementation</p>
+                            <p style="color: white; font-size: 1rem; margin: 0.5rem 0;"><strong>Year 3:</strong> Significant growth achieved</p>
+                            <p style="color: #6bcf7f; font-size: 1.2rem; font-weight: bold;">🎯 Strong upward trajectory in both subjects</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
-   <!-- Comparative Performance Page -->
+    <!-- Comparative Performance Page -->
     <div id="comparative" class="page">
         <div class="container">
             <h1 style="text-align: center; font-size: 3rem; margin-bottom: 3rem; background: linear-gradient(45deg, #ff6b6b, #ffd93d); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">2025 Performance Comparison</h1>
@@ -1324,25 +1283,6 @@
             }, { threshold: 0.1 });
 
             timelineItems.forEach(item => observer.observe(item));
-
-            // Progress bar animation
-            const progressBars = document.querySelectorAll('.progress-bar');
-            const statsObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        progressBars.forEach((bar, index) => {
-                            setTimeout(() => {
-                                bar.style.height = bar.style.height;
-                            }, index * 300);
-                        });
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            const progressChart = document.querySelector('.progress-chart');
-            if (progressChart) {
-                statsObserver.observe(progressChart);
-            }
         });
 
         // Add smooth scrolling for better UX
